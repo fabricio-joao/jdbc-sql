@@ -2,7 +2,9 @@ package cursojdbc.conexaobancosdedados.app;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -15,25 +17,25 @@ public class Programa {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		Connection conexao = null;
-		PreparedStatement ps = null;
+		Statement st = null;
+		ResultSet rs = null;
 
 		try {
 			conexao = ConexaoBancoDados.retornaConexao();
-			ps = conexao.prepareStatement(
-					"delete from Vendedores "
-				  //+ "set Nome = ?, Email = ?, Nascimento = ?, Salario = ?, DepartamentosId = ? " 
-			      + "where "
-			      + "Nome = ?");
+			st = conexao.createStatement();
+			rs = st.executeQuery(
+					"select * from Vendedores "
+					+ "where "
+					+ "Nome like 'm%' ");
 			
-			ps.setString(1, "Dilma");
-			/*ps.setString(2, "joana@gmail.com");
-			ps.setDate(3, new java.sql.Date(sdf.parse("20-11-2012").getTime()));
-			ps.setDouble(4, 3000);
-			ps.setInt(5, 3);
-			ps.setInt(6, 3);*/
-			
-			int linha = ps.executeUpdate();
-			System.out.println("Executado! Total de linhas alteradas: " + linha);
+			while(rs.next()) {
+				System.out.println(
+						rs.getString("Nome") 
+						+ ", " + rs.getString("Email") 
+						+ ", " + rs.getDate("Nascimento") 
+						+ ", R$" + rs.getDouble("Salario") 
+						+ ", " + rs.getInt("DepartamentosId"));
+			}
 			
 		} 
 		
@@ -46,7 +48,8 @@ public class Programa {
 		}*/
 		
 		finally {
-			ConexaoBancoDados.fecharStatement(ps);
+			ConexaoBancoDados.fecharStatement(st);
+			ConexaoBancoDados.fecharConexaoResultSet(rs);
 			ConexaoBancoDados.fecharConexao();
 		}
 	}
