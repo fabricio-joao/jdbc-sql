@@ -23,10 +23,10 @@ public class Programa {
 			st = conexao.createStatement();
 			rs = st.executeQuery("select * from Vendedores "
 					+ "where "
-					+ "Salario = 4000");
+					+ "DepartamentosId = 4");
 			
 			while(rs.next()) {
-				System.out.println(rs.getInt("Id") + ", " + rs.getString("Nome") + ", " + rs.getString("Email") + ", " + rs.getDate("Nascimento") + "," + rs.getDouble("Salario") + ", " + rs.getInt("DepartamentosId"));
+				System.out.println(rs.getInt("Id") + ", " + rs.getString("Nome") + ", " + rs.getString("Email") + ", " + rs.getDate("Nascimento") + ", R$" + rs.getDouble("Salario") + ", " + rs.getInt("DepartamentosId"));
 			}
 		} 
 		
