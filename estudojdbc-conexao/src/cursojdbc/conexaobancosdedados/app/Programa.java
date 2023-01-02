@@ -24,17 +24,14 @@ public class Programa {
 			conexao = ConexaoBancoDados.retornaConexao();
 			st = conexao.createStatement();
 			rs = st.executeQuery(
-					"select * from Vendedores "
-					+ "where "
-					+ "Nome like 'm%' ");
+					"select Vendedores.DepartamentosId, Vendedores.Nome, Departamentos.Setores "
+					+ "from Vendedores "
+					+ "inner join Departamentos "
+					+ "on Vendedores.DepartamentosId = Departamentos.Id");
 			
 			while(rs.next()) {
-				System.out.println(
-						rs.getString("Nome") 
-						+ ", " + rs.getString("Email") 
-						+ ", " + rs.getDate("Nascimento") 
-						+ ", R$" + rs.getDouble("Salario") 
-						+ ", " + rs.getInt("DepartamentosId"));
+				if(rs.getInt("DepartamentosId") == 3)
+				System.out.println(rs.getInt("DepartamentosId") + " - " + rs.getString("Nome") + " - " + rs.getString("Setores"));
 			}
 			
 		} 
