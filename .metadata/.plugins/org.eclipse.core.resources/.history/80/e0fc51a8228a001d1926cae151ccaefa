@@ -1,0 +1,5 @@
+package cursojdbc.conexaobancosdedados;
+
+public class ExcecaoBancoDados {
+
+}

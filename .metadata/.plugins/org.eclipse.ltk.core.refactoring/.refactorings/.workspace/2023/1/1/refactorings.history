@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;cursojdbc&apos; to &apos;cursojdbc-conexao&apos;" description="Rename resource &apos;cursojdbc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/cursojdbc" name="cursojdbc-conexao" stamp="1672650527646" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;cursojdbc-conexao&apos; to &apos;estudojdbc-conexao&apos;" description="Rename resource &apos;cursojdbc-conexao&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/cursojdbc-conexao" name="estudojdbc-conexao" stamp="1672650597644" updateReferences="true"/>
+</session>

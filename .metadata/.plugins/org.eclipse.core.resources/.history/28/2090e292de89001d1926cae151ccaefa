@@ -1,0 +1,5 @@
+package cursojdbc.conexaoBancoDados.dominio;
+
+public class Usuario {
+
+}

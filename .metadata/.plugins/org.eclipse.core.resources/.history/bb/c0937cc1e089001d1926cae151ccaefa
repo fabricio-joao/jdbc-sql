@@ -1,0 +1,16 @@
+package cursojdbc.conexaoBancoDados.app;
+
+import java.sql.Connection;
+
+import cursojdbc.conexaoBancoDados.ConexaoBancoDados;
+
+public class Programa {
+
+	public static void main(String[] args) {
+		
+		Connection conexao = ConexaoBancoDados.retornaConexao();
+		System.out.println("Conectado!!!!!");
+		ConexaoBancoDados.fecharConexao();
+        
+	}
+}
