@@ -23,10 +23,10 @@ public class Programa {
 		try {
 			conexao = ConexaoBancoDados.retornaConexao();
 			st = conexao.createStatement();
-			rs = st.executeQuery("select Nome, Nascimento from Vendedores");
+			rs = st.executeQuery("select distinct DepartamentosId from Vendedores");
 			
 			while(rs.next()) {
-				System.out.println(rs.getString("Nome") + ", " + rs.getDate("Nascimento"));
+				System.out.println(rs.getInt("DepartamentosId"));
 			}
 		} 
 		catch (SQLException e) {
