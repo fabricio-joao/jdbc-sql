@@ -22,7 +22,8 @@ public class Programa {
 			conexao = ConexaoBancoDados.retornaConexao();
 			st = conexao.createStatement();
 			rs = st.executeQuery("select * from Vendedores "
-					+ "order by Nome");
+					+ "order by "
+					+ "Nome desc");
 			
 			while(rs.next()) {
 				System.out.println(rs.getInt("Id") + ", " + rs.getString("Nome") + ", " + rs.getString("Email") + ", " + rs.getDate("Nascimento") + ", R$" + rs.getDouble("Salario") + ", " + rs.getInt("DepartamentosId"));
