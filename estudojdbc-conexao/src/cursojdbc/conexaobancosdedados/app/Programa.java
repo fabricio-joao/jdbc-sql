@@ -18,9 +18,14 @@ public class Programa {
 			conexao = ConexaoBancoDados.retornaConexao();
 			
 			ps = conexao.prepareStatement(
-					"create table `Departamentos`"
-				  + "(`Id` int not null, " 
-			      + "`Setores` varchar(15))"
+					"create table `Vendedores`"
+				  + "(`Id` int not null auto_increment, " 
+			      + "`Nome` varchar(25) not null, "
+			      + "`Email` varchar(20) not null, "
+			      + "`Nascimento` date, "
+			      + "`Salario` double, "
+			      + "`DepartamentosId` int, "
+			      + "primary key(Id)) "
 			      + "default charset = utf8");
 			
 			int linha = ps.executeUpdate();
