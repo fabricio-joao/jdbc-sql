@@ -2,9 +2,7 @@ package cursojdbc.conexaobancosdedados.app;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -18,21 +16,21 @@ public class Programa {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		Connection conexao = null;
 		PreparedStatement ps = null;
-	
 
 		try {
 			conexao = ConexaoBancoDados.retornaConexao();
 			ps = conexao.prepareStatement(
-					"insert into Vendedores"
-				  + "(Nome, Email, Nascimento, Salario, DepartamentosId ) " 
-			      + "values "
-			      + "(?, ?, ?, ?, ?)");
+					"update Vendedores "
+				  + "set Nome = ?, Email = ?, Nascimento = ?, Salario = ?, DepartamentosId = ? " 
+			      + "where "
+			      + "id = ?");
 			
-			ps.setString(1, "Dilma");
-			ps.setString(2, "dilma@gmail.com");
-			ps.setDate(3, new java.sql.Date(sdf.parse("30-07-2012").getTime()));
-			ps.setDouble(4, 2000);
-			ps.setInt(5, 2);
+			ps.setString(1, "Joana");
+			ps.setString(2, "joana@gmail.com");
+			ps.setDate(3, new java.sql.Date(sdf.parse("20-11-2012").getTime()));
+			ps.setDouble(4, 3000);
+			ps.setInt(5, 3);
+			ps.setInt(6, 3);
 			
 			int linha = ps.executeUpdate();
 			System.out.println("Executado! Total de linhas alteradas: " + linha);
