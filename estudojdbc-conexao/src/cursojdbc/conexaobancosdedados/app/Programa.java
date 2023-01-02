@@ -22,8 +22,7 @@ public class Programa {
 			conexao = ConexaoBancoDados.retornaConexao();
 			st = conexao.createStatement();
 			rs = st.executeQuery("select * from Vendedores "
-					+ "where "
-					+ "Salario= 4000 OR DepartamentosId= 1");
+					+ "order by Nome");
 			
 			while(rs.next()) {
 				System.out.println(rs.getInt("Id") + ", " + rs.getString("Nome") + ", " + rs.getString("Email") + ", " + rs.getDate("Nascimento") + ", R$" + rs.getDouble("Salario") + ", " + rs.getInt("DepartamentosId"));
