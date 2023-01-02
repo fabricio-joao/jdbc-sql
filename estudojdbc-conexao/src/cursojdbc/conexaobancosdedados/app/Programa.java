@@ -18,15 +18,12 @@ public class Programa {
 			conexao = ConexaoBancoDados.retornaConexao();
 			
 			ps = conexao.prepareStatement(
-					"create table `Vendedores`"
-				  + "(`Id` int not null auto_increment, " 
-			      + "`Nome` varchar(25) not null, "
-			      + "`Email` varchar(20) not null, "
-			      + "`Nascimento` date, "
-			      + "`Salario` double, "
-			      + "`DepartamentosId` int, "
-			      + "primary key(Id)) "
-			      + "default charset = utf8");
+					"insert into Departamentos"
+				  + "(Id, Setores) " 
+			      + "values "
+			      + "(?, ?)");
+			ps.setInt(1, 2);
+			ps.setString(2, "Eletronicos");
 			
 			int linha = ps.executeUpdate();
 			System.out.println("Executado! Total de linhas alteradas: " + linha);
