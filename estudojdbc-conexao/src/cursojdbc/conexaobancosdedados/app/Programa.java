@@ -23,7 +23,7 @@ public class Programa {
 			st = conexao.createStatement();
 			rs = st.executeQuery("select * from Vendedores "
 					+ "order by "
-					+ "Nome desc");
+					+ "Nome asc, Salario desc");
 			
 			while(rs.next()) {
 				System.out.println(rs.getInt("Id") + ", " + rs.getString("Nome") + ", " + rs.getString("Email") + ", " + rs.getDate("Nascimento") + ", R$" + rs.getDouble("Salario") + ", " + rs.getInt("DepartamentosId"));
