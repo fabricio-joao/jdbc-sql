@@ -1,11 +1,9 @@
 package cursojdbc.conexaobancosdedados.app;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import cursojdbc.conexaobancosdedados.ConexaoBancoDados;
@@ -23,12 +21,15 @@ public class Programa {
 		try {
 			conexao = ConexaoBancoDados.retornaConexao();
 			st = conexao.createStatement();
-			rs = st.executeQuery("select distinct DepartamentosId from Vendedores");
+			rs = st.executeQuery("select * from Vendedores "
+					+ "where "
+					+ "Salario = 4000");
 			
 			while(rs.next()) {
-				System.out.println(rs.getInt("DepartamentosId"));
+				System.out.println(rs.getInt("Id") + ", " + rs.getString("Nome") + ", " + rs.getString("Email") + ", " + rs.getDate("Nascimento") + "," + rs.getDouble("Salario") + ", " + rs.getInt("DepartamentosId"));
 			}
 		} 
+		
 		catch (SQLException e) {
 			throw new ExcecaoBancoDados(e.getMessage());
 		}
