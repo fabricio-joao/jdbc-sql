@@ -20,17 +20,17 @@ public class Programa {
 		try {
 			conexao = ConexaoBancoDados.retornaConexao();
 			ps = conexao.prepareStatement(
-					"update Vendedores "
-				  + "set Nome = ?, Email = ?, Nascimento = ?, Salario = ?, DepartamentosId = ? " 
+					"delete from Vendedores "
+				  //+ "set Nome = ?, Email = ?, Nascimento = ?, Salario = ?, DepartamentosId = ? " 
 			      + "where "
-			      + "id = ?");
+			      + "Nome = ?");
 			
-			ps.setString(1, "Joana");
-			ps.setString(2, "joana@gmail.com");
+			ps.setString(1, "Dilma");
+			/*ps.setString(2, "joana@gmail.com");
 			ps.setDate(3, new java.sql.Date(sdf.parse("20-11-2012").getTime()));
 			ps.setDouble(4, 3000);
 			ps.setInt(5, 3);
-			ps.setInt(6, 3);
+			ps.setInt(6, 3);*/
 			
 			int linha = ps.executeUpdate();
 			System.out.println("Executado! Total de linhas alteradas: " + linha);
@@ -41,9 +41,9 @@ public class Programa {
 			throw new ExcecaoBancoDados(e.getMessage());
 		}
 		
-		catch (ParseException e) {
+		/*catch (ParseException e) {
 			throw new ExcecaoBancoDados(e.getMessage());
-		}
+		}*/
 		
 		finally {
 			ConexaoBancoDados.fecharStatement(ps);
