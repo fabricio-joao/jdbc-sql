@@ -19,11 +19,20 @@ public class Programa {
     
     System.out.println();
     
-    System.out.println("#### Buscar todos Departamentos #### ");
+    System.out.println("\n#### Buscar todos Departamentos #### ");
 	DepartamentosDao deoBuscaTodos = FabricaDao.criarDepartametos();
     List<Departamentos> obj = deoBuscaTodos.buscarTodos();
     for(Departamentos x: obj) {
     	 System.out.println("Id: " + x.getId() + " - " + "Setor: " + x.getSetores());
     }
+    
+    System.out.println();
+    
+    System.out.println("\n#### Inserir Departamentos #### ");
+	DepartamentosDao inserirDep = FabricaDao.criarDepartametos();
+    Departamentos departamentos = new Departamentos();
+    departamentos.setId(5);
+    departamentos.setSetores("Telefonia");
+    inserirDep.inserir(departamentos);
 	}
 }

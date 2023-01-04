@@ -22,7 +22,26 @@ public class DepartamentosDaoJDBC implements DepartamentosDao{
 
 	@Override
 	public void inserir(Departamentos obj) {
-		// TODO Auto-generated method stub
+		
+		PreparedStatement ps = null;
+		try {
+			ps = conexao.prepareStatement(
+					"insert into Departamentos "
+					+ "(Id, Setores) "
+				    +"values "
+					+ "(?, ?) ");
+			ps.setInt(1, obj.getId());
+			ps.setString(2, obj.getSetores());
+			
+			int linha = ps.executeUpdate();
+			System.out.println("Total de linhas alterada(s):  " + linha);
+		}
+		catch(SQLException e) {
+			throw new ExcecaoBancoDados(e.getMessage());
+		}
+		finally {
+			ConexaoBancoDados.fecharStatement(ps);
+		}
 		
 	}
 
@@ -94,7 +113,7 @@ public class DepartamentosDaoJDBC implements DepartamentosDao{
 		}
 		finally {
 			ConexaoBancoDados.fecharStatement(ps);
-			ConexaoBancoDados.fecharConexao();
+			ConexaoBancoDados.fecharConexaoResultSet(rs);
 		}
 }
 }
