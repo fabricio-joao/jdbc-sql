@@ -1,30 +1,48 @@
 package cursojdbc.conexaobancosdedados.entidades;
 
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
-public class Vendedores {
+public class Vendedores implements Serializable{
 	
-	private Long id;
+	private static final long serialVersionUID = 1L;
+	
+	private Integer id;
 	private String nome;
 	private String email;
 	private Date nascimento;
+	private Double salario;
 	
 	private Departamentos departamentos;
 	
 	public Vendedores() {
 	
 	}
+	
 
-    public Vendedores(Long id, String nome, String email, Date nascimento, Departamentos departamentos) {
-		
+	public Vendedores(Integer id, String nome, String email, Date nascimento, Double salario,
+			Departamentos departamentos) {
+		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.nascimento = nascimento;
+		this.salario = salario;
 		this.departamentos = departamentos;
 	}
+
+
+	public Double getSalario() {
+		return salario;
+	}
+
+
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
+
 
 	public Date getNascimento() {
 		return nascimento;
@@ -42,13 +60,14 @@ public class Vendedores {
 		this.departamentos = departamentos;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
+
 
 	public String getNome() {
 		return nome;
@@ -64,6 +83,12 @@ public class Vendedores {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "Vendedores: id=" + id + ", nome=" + nome + ", email=" + email + ", nascimento=" + nascimento
+				+ ", departamentos=" + departamentos + "]";
 	}
 
 	@Override

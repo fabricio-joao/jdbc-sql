@@ -56,7 +56,7 @@ public class DepartamentosDaoJDBC implements DepartamentosDao{
 				  + "where Departamentos.Id = ?");
 			ps.setInt(1,obj.getId());
 			ps.setString(2, obj.getSetores());
-			ps.setInt(3, 5);
+			ps.setInt(3, 7);
 		
 			int linha = ps.executeUpdate();
 			System.out.println("Total de linhas alterada(s):  " + linha);
@@ -70,11 +70,6 @@ public class DepartamentosDaoJDBC implements DepartamentosDao{
 		}
 	}
 
-	@Override
-	public void deletarPorId(Departamentos obj) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public Departamentos buscarPorId(Integer id) {
@@ -135,4 +130,27 @@ public class DepartamentosDaoJDBC implements DepartamentosDao{
 			ConexaoBancoDados.fecharConexaoResultSet(rs);
 		}
 }
+
+	@Override
+	public void deletar(Departamentos obj) {
+	
+		PreparedStatement ps = null;
+		
+		try {
+			ps = conexao.prepareStatement(
+					"delete from Departamentos "
+				  + "where Setores = ?");
+			ps.setString(1, obj.getSetores());
+			
+			int linha = ps.executeUpdate();
+			System.out.println("Total de linhas alterada(s):  " + linha);
+		}
+		catch(SQLException e) {
+			throw new ExcecaoBancoDados(e.getMessage());
+		}
+		finally {
+			ConexaoBancoDados.fecharStatement(ps);
+		    ConexaoBancoDados.fecharConexao();
+		}
+	}
 }

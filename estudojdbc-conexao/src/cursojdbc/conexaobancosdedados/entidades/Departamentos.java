@@ -1,10 +1,7 @@
 package cursojdbc.conexaobancosdedados.entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
-
-import cursojdbc.conexaobancosdedados.dao.DepartamentosDao;
 
 public class Departamentos implements Serializable{
 	
@@ -37,6 +34,11 @@ public class Departamentos implements Serializable{
 		this.setores = setores;
 	}
 	
+	@Override
+	public String toString() {
+		return "Departamentos [id=" + id + ", setores=" + setores + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

@@ -8,7 +8,7 @@ public interface DepartamentosDao {
 
 	void inserir(Departamentos obj);
 	void atualizar(Departamentos obj);
-	void deletarPorId(Departamentos obj);
+	void deletar(Departamentos obj);
 	Departamentos buscarPorId(Integer id);
     List<Departamentos> buscarTodos();
 }

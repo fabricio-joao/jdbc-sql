@@ -12,17 +12,20 @@
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="java.text.ParseException"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.dao.impl.DepartamentosDaoJDBC"/>
-    <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.dao.FabricaDao"/>
-    <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.dao.DepartamentosDao"/>
-    <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.entidades.Departamentos"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.ExcecaoBancoDados"/>
-    <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.ConexaoBancoDados"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.dao.DepartamentosDao"/>
+    <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.dao.FabricaDao"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.ConexaoBancoDados"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="cursojdbc.conexaobancosdedados.entidades.Departamentos"/>
 </qualifiedTypeNameHistroy>
