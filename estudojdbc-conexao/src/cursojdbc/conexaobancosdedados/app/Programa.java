@@ -34,5 +34,12 @@ public class Programa {
     departamentos.setId(5);
     departamentos.setSetores("Telefonia");
     inserirDep.inserir(departamentos);
+    
+    System.out.println();
+    
+    System.out.println("\n#### Atualizar Departamentos #### ");
+    DepartamentosDao atualizarDep = FabricaDao.criarDepartametos();
+    Departamentos departamentos2 = new Departamentos(1, "Perfumaria");
+    atualizarDep.atualizar(departamentos2);
 	}
 }

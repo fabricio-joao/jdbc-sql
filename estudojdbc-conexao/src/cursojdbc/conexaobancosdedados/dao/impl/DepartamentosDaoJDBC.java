@@ -47,8 +47,27 @@ public class DepartamentosDaoJDBC implements DepartamentosDao{
 
 	@Override
 	public void atualizar(Departamentos obj) {
-		// TODO Auto-generated method stub
 		
+		PreparedStatement ps = null;
+		try {
+			ps = conexao.prepareStatement(
+					"update Departamentos "
+				  + "set Id = ?, Setores = ?"
+				  + "where Departamentos.Id = ?");
+			ps.setInt(1,obj.getId());
+			ps.setString(2, obj.getSetores());
+			ps.setInt(3, 5);
+		
+			int linha = ps.executeUpdate();
+			System.out.println("Total de linhas alterada(s):  " + linha);
+			
+		}
+		catch(SQLException e) {
+			throw new ExcecaoBancoDados(e.getMessage());
+		}
+		finally {
+			ConexaoBancoDados.fecharStatement(ps);
+		}
 	}
 
 	@Override
